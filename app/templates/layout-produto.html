@@ -1,0 +1,36 @@
+{% extends "layout-principal.html" %}
+
+{% block botao %}Voltar{% endblock %}
+
+{% block conteudo %}
+    <form action="/adicionar" method="post">
+        <div class="campos">
+            <div class="campo">
+                <label for="codigo">Código</label>
+                <input type="text" name="codigo" id="codigo" placeholder="Digite o código identificador do produto">
+            </div>
+            <div class="campo">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" placeholder="Digite o nome do produto">
+            </div>
+            <div class="campo">
+                <label for="descricao">Descrição</label>
+                <input type="text" name="descricao" id="descricao" placeholder="Digite a descrição do produto">
+            </div>
+            <div class="campo">
+                <label for="preco">Preço</label>
+                <input type="number" name="preco" id="preco" placeholder="Digite o preço do produto">
+            </div>
+            <div class="campo">
+                <label for="imagem">Imagem</label>
+                <input type="url" name="imagem" id="imagem" placeholder="Digite a url da imagem do produto">
+            </div>
+        </div>
+        <div class="botoes">
+            <div>
+                <a href="/" class="botao">Cancelar</a>
+            </div>
+            <button class="botao" type="submit">Salvar</button>
+        </div>
+    </form>
+{% endblock %}

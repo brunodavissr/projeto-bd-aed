@@ -1,0 +1,133 @@
+* {
+    font-family: "Sora", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 40px 80px;
+}
+
+:root {
+    --preto: #000000;
+    --cinza-escuro: #333333;
+    --cinza-medio: #666666;
+    --cinza-claro: #F1F1F1;
+    --branco: #FFFFFF;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 40px;
+}
+
+.produto {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 258.75px;
+    padding: 15px;
+    border: 1px solid var(--cinza-medio);
+    border-radius: 5px;
+}
+
+.identificacao, .preco {
+    color: var(--cinza-escuro);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.descricao {
+    color: var(--cinza-medio);
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.botao {
+    height: 37.5px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--branco);
+    background-color: var(--cinza-escuro);
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+}
+
+.botao:hover {
+    background-color: var(--branco);
+    color: var(--cinza-escuro);
+    border: 2px solid var(--cinza-medio);
+    cursor: pointer;
+}
+
+.produto img {
+    width: 100%;
+    height: 146.25px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.campos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7.5px;
+}
+
+label, input {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--cinza-escuro);
+}
+
+input {
+    height: 60px;
+    background-color: var(--cinza-claro);
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+}
+
+input::placeholder {
+    font-weight: 400;
+    color: var(--cinza-medio);
+}
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--branco);
+}
+
+/* a:hover {
+    color: var(--cinza-escuro);
+} */
