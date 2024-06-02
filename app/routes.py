@@ -8,6 +8,13 @@ def index():
 @app.route('/adicionar', methods=['GET', 'POST'])
 def adicionar():
     if request.method == 'POST':
-        print(request.form)
-        return redirect("/")
+        #Adicionar na base de dados
+        return redirect('/')
     return render_template("adicionar.html")
+
+@app.route('/editar', methods=['GET', 'PUT'])
+def editar():
+    if request.method == 'PUT':
+        #Atualizar na base de dados
+        return redirect('/')
+    return render_template("editar.html")

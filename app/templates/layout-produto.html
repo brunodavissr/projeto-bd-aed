@@ -27,10 +27,16 @@
             </div>
         </div>
         <div class="botoes">
-            <div>
-                <a href="/" class="botao">Cancelar</a>
+            <button class="botao" type="button" onclick="window.location.href='/'">Cancelar</button>
+            <div class="botoes-direita">
+                {% if request.path == '/editar' %}
+                    <button class="botao" type="button">
+                        Excluir
+                    </button>
+                {% endif %}
+                <button class="botao" type="submit">Salvar</button>
             </div>
-            <button class="botao" type="submit">Salvar</button>
         </div>
     </form>
+    {% block conteudo_adicional %}{% endblock %}
 {% endblock %}
