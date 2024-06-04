@@ -4,11 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sistema de Vendas</title>
-        <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Sora:wght@100..800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
     </head>
     <body>
         <header class="header">
@@ -20,5 +22,6 @@
         <main class="conteudo">
             {% block conteudo %}{% endblock %}
         </main>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     </body>
 </html>

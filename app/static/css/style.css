@@ -77,6 +77,10 @@ body {
     transition: all 0.3s ease-out;
 }
 
+#botao-editar {
+    margin-top: auto;
+}
+
 .produto img {
     width: 100%;
     height: 146.25px;
@@ -134,7 +138,7 @@ input::placeholder {
     bottom: 0;
     left: 0;
     right: 0;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     background-color: var(--background-transparente);
@@ -152,7 +156,7 @@ input::placeholder {
     border-radius: 5px;
 }
 
-.sair {
+#icone-fechar-popup {
     position: absolute;
     right: 15px;
     top: 15px;
@@ -166,9 +170,10 @@ input::placeholder {
     font-size: 18px;
     text-decoration: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.sair:hover {
+#icone-fechar-popup:hover {
     background-color: var(--cinza-escuro);
     color: var(--branco);
     transition: all 0.3s ease-out;

@@ -8,14 +8,16 @@
 
 {% block conteudo %}
     <div class="produtos">
-        <div class="produto">
-            <span class="identificacao" title="Identificação do Produto">Banana - 12725</span>
-            <img class="imagem" src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/06/banana_fruta_getty.jpg?w=1024" title="Imagem do Produto">
-            <p class="descricao" title="Descrição do Produto">Alimento muito nutritivo e rico em potassio. Muito gostoso.</p>
-            <span class="preco" title="Preço do Produto">R$ 8,99</span>
-            <button class="botao" title="Editar Produto" onclick="window.location.href='/editar'">
-                Editar
-            </button>
-        </div>
+        {% for produto in produtos %}
+            <div class="produto">
+                <span class="identificacao" title="Identificação do Produto">{{produto[1]}} - {{produto[0]}}</span>
+                <img class="imagem" src="{{produto[4]}}" title="Imagem do Produto">
+                <p class="descricao" title="Descrição do Produto">{{produto[2]}}</p>
+                <span class="preco" title="Preço do Produto">R$ {{produto[3]}}</span>
+                <button class="botao" id="botao-editar" title="Editar Produto" onclick="window.location.href='/editar'">
+                    Editar
+                </button>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

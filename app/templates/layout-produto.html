@@ -19,7 +19,7 @@
             </div>
             <div class="campo">
                 <label for="preco">Preço</label>
-                <input type="number" name="preco" id="preco" placeholder="Digite o preço do produto">
+                <input type="number" name="preco" id="preco" placeholder="Digite o preço do produto" step="0.01">
             </div>
             <div class="campo">
                 <label for="imagem">Imagem</label>
@@ -30,7 +30,7 @@
             <button class="botao" type="button" onclick="window.location.href='/'">Cancelar</button>
             <div class="botoes-direita">
                 {% if request.path == '/editar' %}
-                    <button class="botao" type="button">
+                    <button class="botao" id="excluir" type="button">
                         Excluir
                     </button>
                 {% endif %}

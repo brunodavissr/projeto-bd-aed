@@ -3,12 +3,12 @@
 {% block titulo %}Editar Produto{% endblock %}
 
 {% block conteudo_adicional %}
-    <div class="background-popup">
+    <div class="background-popup" id="background-popup">
         <div class="popup">
-            <a class="sair" href="/"><i class="fa fa-times" aria-hidden="true"></i></a>
+            <a id="icone-fechar-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
             <span class="mensagem-confirmacao">Tem certeza que deseja remover Banana?</span>
             <div class="botoes">
-                <button class="botao" type="button">Não</button>
+                <button class="botao" id="botao-fechar-popup" type="button">Não</button>
                 <button class="botao" type="button">Sim</button>
             </div>
         </div>
