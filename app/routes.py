@@ -7,7 +7,6 @@ def index():
     cursor_db = conexao_db.cursor()
     cursor_db.execute("SELECT * FROM produtos")
     produtos = cursor_db.fetchall()
-    cursor_db.close()
     conexao_db.close()
     return render_template("index.html", produtos=produtos)
 
@@ -30,9 +29,32 @@ def adicionar():
         return redirect('/')
     return render_template("adicionar.html")
 
-@app.route('/editar', methods=['GET', 'PUT'])
-def editar():
-    if request.method == 'PUT':
-        #Atualizar na base de dados
+@app.route('/editar/<codigo>', methods=['GET', 'POST'])
+def editar(codigo):
+    conexao_db = database.conectar_db()
+    cursor_db = conexao_db.cursor()
+    if request.method == 'POST':
+        codigo_ = request.form.get('codigo')
+        nome = request.form.get('nome')
+        descricao = request.form.get('descricao')
+        preco = request.form.get('preco')
+        imagem = request.form.get('imagem')
+        cursor_db.execute(
+            "UPDATE produtos SET codigo = ?, nome = ?, descricao = ?, preco = ?, imagem = ? WHERE codigo = ?",
+            (codigo_, nome, descricao, preco, imagem, codigo)
+        )
+        conexao_db.commit()
+        conexao_db.close()
         return redirect('/')
-    return render_template("editar.html")
+    produto = cursor_db.execute("SELECT * FROM produtos WHERE codigo = ?", (codigo,)).fetchall()
+    conexao_db.close()
+    return render_template("editar.html", produto=produto)
+
+@app.route('/excluir/<codigo>', methods=['POST'])
+def excluir(codigo):
+    conexao_db = database.conectar_db()
+    cursor_db = conexao_db.cursor()
+    cursor_db.execute("DELETE FROM produtos WHERE codigo = ?", (codigo,))
+    conexao_db.commit()
+    conexao_db.close()
+    return redirect('/')

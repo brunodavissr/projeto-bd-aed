@@ -3,33 +3,33 @@
 {% block botao %}Voltar{% endblock %}
 
 {% block conteudo %}
-    <form action="/adicionar" method="post">
+    <form action="/{% block rota %}{% endblock %}" method="post">
         <div class="campos">
             <div class="campo">
                 <label for="codigo">Código</label>
-                <input type="text" name="codigo" id="codigo" placeholder="Digite o código identificador do produto">
+                <input type="number" name="codigo" id="codigo" placeholder="Digite o código identificador do produto" step="1" value="{% block codigo %}{% endblock %}" required>
             </div>
             <div class="campo">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" placeholder="Digite o nome do produto">
+                <input type="text" name="nome" id="nome" placeholder="Digite o nome do produto" maxlength="50" value="{% block nome %}{% endblock %}" required>
             </div>
             <div class="campo">
                 <label for="descricao">Descrição</label>
-                <input type="text" name="descricao" id="descricao" placeholder="Digite a descrição do produto">
+                <input type="text" name="descricao" id="descricao" placeholder="Digite a descrição do produto" maxlength="100" value="{% block descricao %}{% endblock %}" required>
             </div>
             <div class="campo">
                 <label for="preco">Preço</label>
-                <input type="number" name="preco" id="preco" placeholder="Digite o preço do produto" step="0.01">
+                <input type="number" name="preco" id="preco" placeholder="Digite o preço do produto" step="0.01" value="{% block preco %}{% endblock %}" required>
             </div>
             <div class="campo">
                 <label for="imagem">Imagem</label>
-                <input type="url" name="imagem" id="imagem" placeholder="Digite a url da imagem do produto">
+                <input type="url" name="imagem" id="imagem" placeholder="Digite a url da imagem do produto" maxlength="1000" value="{% block imagem %}{% endblock %}" required>
             </div>
         </div>
         <div class="botoes">
             <button class="botao" type="button" onclick="window.location.href='/'">Cancelar</button>
             <div class="botoes-direita">
-                {% if request.path == '/editar' %}
+                {% if request.path.startswith('/editar') %}
                     <button class="botao" id="excluir" type="button">
                         Excluir
                     </button>

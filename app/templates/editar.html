@@ -2,15 +2,23 @@
 
 {% block titulo %}Editar Produto{% endblock %}
 
+{% block rota %}editar/{{produto[0][0]}}{% endblock %}
+
+{% block codigo %}{{produto[0][0]}}{% endblock %}
+{% block nome %}{{produto[0][1]}}{% endblock %}
+{% block descricao %}{{produto[0][2]}}{% endblock %}
+{% block preco %}{{produto[0][3]}}{% endblock %}
+{% block imagem %}{{produto[0][4]}}{% endblock %}
+
 {% block conteudo_adicional %}
     <div class="background-popup" id="background-popup">
-        <div class="popup">
+        <form class="popup" action="/excluir/{{produto[0][0]}}" method="post">
             <a id="icone-fechar-popup"><i class="fa fa-times" aria-hidden="true"></i></a>
-            <span class="mensagem-confirmacao">Tem certeza que deseja remover Banana?</span>
+            <span class="mensagem-confirmacao">Tem certeza que deseja remover {{produto[0][1]}}?</span>
             <div class="botoes">
                 <button class="botao" id="botao-fechar-popup" type="button">Não</button>
-                <button class="botao" type="button">Sim</button>
+                <button class="botao" type="submit">Sim</button>
             </div>
-        </div>
+        </form>
     </div>
 {% endblock %}
